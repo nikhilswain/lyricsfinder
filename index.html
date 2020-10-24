@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Find your lyrics</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <form  id="form">
+                <div id="artist_name">
+                    <input id="artist" type="text" placeholder="Artist's name " required>
+                </div>
+                <div id="song_name">
+                    <input id="song" type="text" placeholder="Song name " required>
+                </div>
+                <input type="submit" value="find lyrics">
+            </form>
+        </div>
+    </div>
+        <div class="output">
+            <p  id="lyricsout"></p>
+        </div>
+
+    <script>
+    let artist = document.getElementById('artist');
+        let song  = document.getElementById('song');
+        let output = document.getElementById('lyricsout')
+        let form = document.getElementById('form')
+        document.addEventListener('submit',getLyrics,false)
+
+    
+    function getLyrics(e){
+        e.preventDefault();
+        output.style.display = 'block'
+        output.innerText = 'grabing the lyrics be patient\n(if its taking too much time then check your internet connection)'
+        let artist_name = artist.value;
+        let song_name = song.value;
+        fetch(`https://api.lyrics.ovh/v1/${artist_name}/${song_name}`)
+        .then(res => {
+            if(res.ok)
+            return res.json()
+            else
+                output.innerText = 'lyrics not found \n(be precise with the names, check spelling and try again)'
+            
+            })
+        .then(data => {
+             output.innerText = data.lyrics
+        })
+        .catch( err => console.log(err))
+ 
+    }
+    </script>
+</body>
+</html>

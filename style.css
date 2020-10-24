@@ -1,0 +1,96 @@
+body {
+box-sizing: border-box;
+margin: 0 auto;
+background-color: rgb(241, 237, 237);
+}
+
+.container {
+    margin: 0 auto;
+    width: 25em;
+    background-color: #6a2f8a;
+    border-radius: 8px;
+     
+}
+.row{
+    padding: 1em;
+    margin-top: 3em;   
+}
+
+form{
+    line-height: 3em;
+    margin-left: 3em;
+}
+input[type='text']{
+    padding: .5em 1em;
+    outline: none;
+    border: 2.5px rgb(255, 255, 255) solid; 
+    border-radius: 5px;
+    width: 18em;
+}
+input[type='text']:focus{
+    border-color:#127ddb;
+}
+input[type="submit"]{
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    width: 8em;
+    border-radius: 4px;
+    margin-left: 4.6em;
+    background-color: #122cdb;
+    color: white;
+    font-size: 1em;
+    padding: 6px;
+}
+input[type="submit"]:hover{
+    background-color:#3b3fb3;
+    font-size: 1.2em;
+    margin-left: 3em;
+}
+#lyricsout {
+width: 400px;
+text-align: center;
+height: auto;
+font-size: 14px;
+line-height: 25px;
+display: block;
+font-family: Verdana, Arial, sans-serif;
+margin: 0 auto;
+background-color: rgb(155, 156, 156);
+padding: 30px;
+color: white;
+ display: none;
+}
+.output{
+    margin-top: 2em;
+    padding: 10px;
+}
+ 
+
+@media screen  and (max-width : 550px){
+    .container {
+        width: 18em;
+    }
+    form {
+        line-height: 3em;
+        margin-left:-.8em;
+    }
+    
+    input[type="text"]{
+        width: 18em;
+        margin-left: 5px;
+    }
+    input[type="submit"]{
+        width: 100%;
+        margin-left:.4em;
+    }
+    input[type="submit"]:hover{
+        width: 100%;
+        margin-left:.4em;
+    }
+
+    #lyricsout {
+        width: 250px;
+    }
+         
+}
